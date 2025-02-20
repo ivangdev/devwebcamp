@@ -1,0 +1,30 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+html {
+  font-size: 62.5%; // 1rem = 10px
+  box-sizing: border-box; // todos los elementos incluyan el padding y border en el width y height
+}
+
+// todos los elementos y sus pseudo elementos
+*,
+*:before,
+*:after {
+  box-sizing: inherit; // heredar el box-sizing de html
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: v.$fuente_principal;
+  font-size: 1.8rem;
+}
+
+a {
+  text-decoration: none; // quitar subrayado a los links
+}
+
+img {
+  width: 100%; // imagenes responsivas (ocupar todo el ancho)
+  height: auto; // imagenes responsivas (mantener aspect ratio)
+}

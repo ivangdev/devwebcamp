@@ -1,0 +1,77 @@
+@use 'sass:color'; // Importar la función color-adjust de Sass.
+
+/* Media Queries */
+/* 
+  Mixin para aplicar estilos en dispositivos móviles 
+  con un ancho mínimo definido por la variable $telefono.
+*/
+@mixin telefono {
+  @media (min-width: v.$telefono) {
+    @content;
+  }
+}
+
+/* 
+  Mixin para aplicar estilos en tabletas 
+  con un ancho mínimo definido por la variable $tablet.
+*/
+@mixin tablet {
+  @media (min-width: v.$tablet) {
+    @content;
+  }
+}
+
+/* 
+  Mixin para aplicar estilos en computadoras de escritorio 
+  con un ancho mínimo definido por la variable $desktop.
+*/
+@mixin desktop {
+  @media (min-width: v.$desktop) {
+    @content;
+  }
+}
+
+/* 
+  Mixin para aplicar estilos en computadoras de escritorio extra grandes 
+  con un ancho mínimo definido por la variable $xl_desktop.
+*/
+@mixin xl_desktop {
+  @media (min-width: v.$xl_desktop) {
+    @content;
+  }
+}
+
+/* 
+  Mixin para crear un botón con colores de fondo y texto personalizables.
+  - $bgColor: Color de fondo del botón.
+  - $colorTexto: Color del texto del botón.
+*/
+@mixin boton($bgColor, $colorTexto) {
+  background-color: $bgColor;
+  padding: 1.5rem 4rem;
+  color: $colorTexto;
+  font-size: 1.8rem;
+  font-weight: 700;
+  border: none;
+  transition-property: background-color;
+  transition-duration: .3s;
+  text-align: center;
+  width: 100%;
+  display: inline-block;
+
+  &:hover {
+    background-color: color-adjust($bgColor, $lightness: -10%); // Ajustar el color de fondo para que sea un 10% más oscuro.
+    cursor: pointer;
+  }
+}
+
+/* 
+  Mixin para crear un diseño de cuadrícula.
+  - $columnas: Número de columnas en la cuadrícula.
+  - $espaciado: Espacio entre los elementos de la cuadrícula.
+*/
+@mixin grid($columnas, $espaciado) {
+  display: grid;
+  grid-template-columns: repeat($columnas, 1fr);
+  gap: $espaciado;
+}

@@ -1,0 +1,22 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+h1,
+h2,
+h3 {}
+
+h1 {
+  font-size: 4rem; // 40px
+}
+
+h2 {
+  font-size: 3.6rem; // 36px
+}
+
+h3 {
+  font-size: 3rem; // 30px
+}
+
+.text-center {
+  text-align: center;
+}
