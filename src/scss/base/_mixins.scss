@@ -75,3 +75,13 @@
   grid-template-columns: repeat($columnas, 1fr);
   gap: $espaciado;
 }
+
+@mixin contenedor {
+  width: min(95%, 120rem); // 95% del ancho máximo o 120rem, lo que sea menor.
+  margin: 0 auto; // Centrar el contenedor principal
+}
+
+@mixin contenedor-sm {
+  width: min(95%, 60rem); // 95% del ancho máximo o 60rem, lo que sea menor.
+  margin: 0 auto; // Centrar el contenedor principal
+}
