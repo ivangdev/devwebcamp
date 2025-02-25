@@ -66,7 +66,7 @@
   display: inline-block;
 
   &:hover {
-    background-color: color-adjust($bgColor, $lightness: -10%); // Ajustar el color de fondo para que sea un 10% más oscuro.
+    background-color: color.adjust($bgColor, $lightness: -10%); // Ajustar el color de fondo para que sea un 10% más oscuro.
     cursor: pointer;
   }
 }
