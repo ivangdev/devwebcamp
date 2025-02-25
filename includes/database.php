@@ -1,4 +1,19 @@
 <?php
+/**
+ * Database Connection Configuration
+ * 
+ * Este archivo establece la conexión a la base de datos MySQL para DevWebCamp.
+ * Utiliza variables de entorno para la configuración segura de la conexión.
+ * 
+ * Variables de entorno requeridas:
+ * @var string DB_HOST - Dirección del servidor de base de datos
+ * @var string DB_USER - Nombre de usuario de MySQL
+ * @var string DB_PASS - Contraseña de MySQL
+ * @var string DB_NAME - Nombre de la base de datos
+ * 
+ * @return mysqli|void - Retorna la conexión o termina el script si hay error
+ */
+
 // Conectar a la base de datos utilizando las variables de entorno
 $db = mysqli_connect(
   $_ENV['DB_HOST'] ?? '', // Host de la base de datos

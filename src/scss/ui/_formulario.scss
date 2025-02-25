@@ -2,10 +2,14 @@
 @use 'base/mixins' as m;
 @use 'sass:color';
 
+// Clase principal para el formulario
+// Utiliza flexbox para organizar los elementos verticalmente
 .formulario {
   display: flex;
   flex-direction: column;
 
+  // Campo del formulario que contiene label e input
+  // Usa flexbox para organizar los elementos con espaciado uniforme
   &__campo {
     display: flex;
     flex-direction: column;
@@ -13,18 +17,24 @@
     margin: 1.5rem 0;
   }
 
+  // Etiqueta del campo del formulario
+  // Define el tamaño y color del texto
   &__label {
     display: block;
     font-size: 1.8rem;
     color: rgba(v.$negro, .8);
   }
 
+  // Campo de entrada del formulario
+  // Establece el estilo visual del input
   &__input {
     padding: 1rem;
     border: 1px solid color.adjust(v.$gris-claro, $lightness: -20%);
     border-radius: .5rem;
   }
 
+  // Botón de envío del formulario
+  // Utiliza el mixin boton con colores personalizados
   &__submit {
     @include m.boton(v.$azul, v.$blanco);
     width: auto;

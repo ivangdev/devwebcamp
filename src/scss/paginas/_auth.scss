@@ -1,13 +1,20 @@
+// Importar mixins necesarios para los estilos de autenticación
 @use 'base/mixins' as m;
 
+// Contenedor principal para las páginas de autenticación
+// Utiliza un contenedor pequeño para centrar el contenido
 .auth {
   @include m.contenedor-sm;
 
+  // Encabezado de la página de autenticación
+  // Aplica estilos consistentes para títulos de página
   &__heading {
     @include m.nombre-pagina;
   }
 }
 
+// Texto descriptivo en páginas de autenticación
+// Utiliza un tamaño de fuente más grande para mejor legibilidad
 .auth__texto {
   font-size: 2rem;
 }
