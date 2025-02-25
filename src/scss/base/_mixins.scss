@@ -1,4 +1,10 @@
 @use 'sass:color'; // Importar la función color-adjust de Sass.
+@use 'base/variables' as v; // Importar las variables de la carpeta 'base'.
+
+/*
+  Mixin para aplicar estilos en pantallas pequeñas
+  con un ancho máximo definido por la variable $pantalla_pequeña.
+*/
 
 /* Media Queries */
 /* 
@@ -84,4 +90,16 @@
 @mixin contenedor-sm {
   width: min(95%, 60rem); // 95% del ancho máximo o 60rem, lo que sea menor.
   margin: 0 auto; // Centrar el contenedor principal
+}
+
+@mixin headings {
+  font-family: v.$fuente-principal;
+  font-weight: v.$black;
+  margin: 2rem 0;
+}
+
+@mixin nombre-pagina {
+  @include headings;
+  margin: 6rem 0 3rem 0; // 6rem arriba, 0 a los lados, 3rem abajo.
+  text-align: center;
 }
