@@ -34,7 +34,7 @@
   </form>
 
   <div class="acciones">
-    <a href="/registro" class="acciones__enlace">¿Ya tienes cuenta? Iniciar sesión</a>
+    <a href="/login" class="acciones__enlace">¿Ya tienes cuenta? Iniciar Sesión</a>
     <a href="/olvide" class="acciones__enlace">¿Olvisate tu Password?</a>
   </div>
 </main>
