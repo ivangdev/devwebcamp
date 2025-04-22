@@ -103,3 +103,9 @@
   margin: 6rem 0 3rem 0; // 6rem arriba, 0 a los lados, 3rem abajo.
   text-align: center;
 }
+
+@mixin texto-fluido($min, $max) {
+  font-size: clamp($min, -0.8rem + 10vw, $max);
+}
+
+@mixin texto-degradado {}
