@@ -10,7 +10,7 @@
     <div class="header__contenido">
       <a href="/">
         <h1 class="header__logo"> <!-- Logo usando entidad HTML -->
-          &#60;DevWebCamp />
+          &#60;DevWebCamp /> <!-- Entidad -->
         </h1>
       </a>
 

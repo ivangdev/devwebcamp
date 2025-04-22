@@ -8,6 +8,8 @@ const imagemin = require("gulp-imagemin");
 const sharpResponsive = require("gulp-sharp-responsive"); // New import
 const terser = require("gulp-terser");
 const webp = require("gulp-webp");
+const autoprefixer = require("autoprefixer");
+const postcss = require("gulp-postcss");
 
 // Configurar gulp-sass para usar dart-sass como compilador
 const sass = gulpSass(dartSass);
@@ -80,6 +82,7 @@ function css(done) {
 	src(paths.scss, { sourcemaps: true })
 		.pipe(gulpPlumber(errorHandler))
 		.pipe(sass({ outputStyle: "compressed" }))
+		.pipe(postcss([autoprefixer()]))
 		.pipe(dest(paths.dist.css, { sourcemaps: "." }))
 		.on("end", done);
 }
@@ -111,8 +114,9 @@ function img(done) {
 		.pipe(gulpPlumber(errorHandler))
 		.pipe(
 			imagemin([
+				imagemin.gifsicle({ interlaced: true }),
 				imagemin.mozjpeg({ quality: 75, progressive: true }),
-				imagemin.optipng({ optimizationLevel: 3 }),
+				imagemin.optipng({ optimizationLevel: 5 }),
 			]),
 		)
 		.pipe(dest(paths.dist.img))
@@ -127,7 +131,7 @@ function img(done) {
 function versionWebp(done) {
 	src(paths.img.raster)
 		.pipe(gulpPlumber(errorHandler))
-		.pipe(webp(opcionesImagen))
+		.pipe(webp({ quality: 80 }))
 		.pipe(dest(paths.dist.img))
 		.on("end", done);
 }
@@ -146,10 +150,7 @@ function versionAvif(done) {
 				formats: [
 					{
 						format: "avif",
-						quality: 50,
-						rename: { suffix: "" },
-						withoutEnlargement: true,
-						withoutReduction: true,
+						quality: 80,
 					},
 				],
 			}),
@@ -190,7 +191,7 @@ function dev() {
  * Ejecuta procesamiento de assets seguido de imágenes
  * @type {Function}
  */
-const build = series(assetTasks, imageTasks);
+const build = series(assetTasks, series(img, versionWebp, versionAvif));
 
 // Exportar las tareas
 exports.css = css;
