@@ -1,13 +1,16 @@
 @use 'base/variables' as v;
 @use 'base/mixins' as m;
 
+// Estilos para el header principal del sitio
 .header {
   min-height: 60rem;
+  // Fondo compuesto: dos SVG decorativos, un degradado y una imagen de fondo
   background-image: url(../img/grafico.svg), url(../img/grafico.svg), linear-gradient(to right, rgba(v.$negro, 1), rgba(v.$negro, .5)), url(../img/headercopy.jpg);
   background-repeat: no-repeat;
   background-size: 400px, 400px, cover, cover;
   background-position: top left, bottom right, center center, center center;
 
+  // Navegación superior del header
   &__navegacion {
     padding: 5rem 0;
     display: flex;
@@ -19,6 +22,7 @@
     }
   }
 
+  // Enlaces de la navegación del header
   &__enlace {
     color: v.$blanco;
     font-size: 1.4rem;
@@ -30,6 +34,7 @@
     }
   }
 
+  // Contenedor principal del contenido del header
   &__contenido {
     @include m.contenedor;
     padding-top: 10rem;
@@ -39,7 +44,9 @@
     }
   }
 
+  // Logo principal del header
   &__logo {
+    // Tamaño de fuente fluido y degradado para el logo
     @include m.texto-fluido(2rem, 8rem);
     @include m.texto-degradado(v.$azul, v.$secundario);
     text-align: center;
@@ -50,6 +57,7 @@
     }
   }
 
+  // Textos informativos del header (fecha, modalidad, etc.)
   &__texto {
     font-size: 3rem;
     font-weight: v.$bold;
@@ -62,15 +70,19 @@
       text-align: left;
     }
 
+    // Variante para el texto de modalidad
     &--modalidad {
       font-size: 2rem;
     }
   }
 
+  // Botón principal del header (call to action)
   &__boton {
+    // Botón con colores personalizados y estilos responsivos
     @include m.boton(v.$secundario, v.$blanco);
     text-transform: uppercase;
     margin: 2rem 0;
+
     @include m.tablet {
       width: auto;
     }

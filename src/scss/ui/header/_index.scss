@@ -1,1 +1,5 @@
+// Archivo de entrada para los estilos del header.
+// Reexporta los estilos definidos en _header.scss para su uso global.
+// Este archivo funciona como una exportación tipo barril (barrel export),
+// permitiendo importar todos los estilos del header desde un solo punto.
 @forward 'header';
