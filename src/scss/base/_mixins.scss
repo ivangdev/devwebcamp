@@ -83,7 +83,7 @@
 }
 
 @mixin contenedor {
-  width: min(95%, 120rem); // 95% del ancho máximo o 120rem, lo que sea menor.
+  width: min(95%, 140rem); // 95% del ancho máximo o 120rem, lo que sea menor.
   margin: 0 auto; // Centrar el contenedor principal
 }
 
@@ -108,4 +108,8 @@
   font-size: clamp($min, -0.8rem + 10vw, $max);
 }
 
-@mixin texto-degradado {}
+@mixin texto-degradado($inicio, $final) {
+  background: linear-gradient(to right, $inicio, $final);
+  background-clip: text;
+  color: transparent;
+}
