@@ -3,7 +3,10 @@
 
 .header {
   min-height: 60rem;
-  background-image: url(../img/grafico.svg), url(../img/grafico.svg), linear-gradient(to right, rgba(v.$negro, 1), rgba(v.$negro, .5)), url(../img/header.jpg);
+  background-image: url(../img/grafico.svg), url(../img/grafico.svg), linear-gradient(to right, rgba(v.$negro, 1), rgba(v.$negro, .5)), url(../img/headercopy.jpg);
+  background-repeat: no-repeat;
+  background-size: 400px, 400px, cover, cover;
+  background-position: top left, bottom right, center center, center center;
 
   &__navegacion {
     padding: 5rem 0;
