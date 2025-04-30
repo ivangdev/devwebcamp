@@ -14,7 +14,7 @@
  * @param string $variable La variable a depurar.
  * @return string
  */
-function debuguear(string $variable): string
+function debuguear($variable): void
 {
   echo "<pre>";
   var_dump($variable);
