@@ -89,7 +89,7 @@ class Email
     // Crear el contenido del email
     $contenido = '<html>';
     $contenido .= '<p><strong>Hola ' . $this->nombre . '</strong> Has solicitado reestablecer tu contraseña, sigue el siguiente enlace para hacerlo.</p>';
-    $contenido .= '<p>Presiona aquí: <a href="' . $_ENV['HOST'] . '/recuperar?token=' . $this->token . '">Reestablecer Contraseña</a></p>';
+    $contenido .= '<p>Presiona aquí: <a href="' . $_ENV['HOST'] . '/reestablecer?token=' . $this->token . '">Reestablecer Contraseña</a></p>';
     $contenido .= '<p>Si tú no solicitaste este cambio, puedes ignorar este mensaje</p>';
     $contenido .= '</html>';
     $mail->Body = $contenido; // Establecer el cuerpo del email
