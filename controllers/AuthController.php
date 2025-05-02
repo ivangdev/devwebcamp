@@ -255,7 +255,7 @@ class AuthController
 
     if (empty($usuario)) {
       // No se encontró el usuario con el token
-      Usuario::setAlerta('error', 'Token no válido');
+      Usuario::setAlerta('error', 'Token no válido, la cuenta no se confirmo.');
     } else {
       // Confirmar el usuario
       $usuario->confirmado = 1;

@@ -28,7 +28,7 @@
     <div class="formulario__campo">
       <label for="password" class="formulario__label">Password</label>
       <input type="password" class="formulario__input" placeholder="Tu Password" id="password" name="password" />
-    </div>
+    </div> 
 
     <div class="formulario__campo">
       <label for="password2" class="formulario__label">Repetir Password</label>
