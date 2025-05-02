@@ -33,11 +33,18 @@ class AuthController
           if (password_verify($_POST['password'], $usuario->password)) {
             // Iniciar sesión
             session_start();
-            $_SESSION['usuario'] = $usuario->id;
+            $_SESSION['id'] = $usuario->id;
             $_SESSION['nombre'] = $usuario->nombre;
             $_SESSION['apellido'] = $usuario->apellido;
             $_SESSION['email'] = $usuario->email;
             $_SESSION['admin'] = $usuario->admin ?? null;
+
+            // Redireccionar según el rol del usuario
+            if ($usuario->admin) {
+              header('Location: /admin/dashboard');
+            } else {
+              header('Location: /finalizar-registro');
+            }
           } else {
             Usuario::setAlerta('error', 'La contraseña es incorrecta');
           }
