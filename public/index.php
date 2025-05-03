@@ -6,6 +6,7 @@ require_once __DIR__ . '/../includes/app.php';
 // Importar las clases necesarias
 use MVC\Router;
 use Controllers\AuthController;
+use Controllers\DashboardController;
 
 // Crear una nueva instancia del enrutador
 $router = new Router();
@@ -41,6 +42,9 @@ $router->post('/reestablecer', [AuthController::class, 'reestablecer']);
 $router->get('/mensaje', [AuthController::class, 'mensaje']);
 // Confirmar la cuenta del usuario
 $router->get('/confirmar-cuenta', [AuthController::class, 'confirmar']);
+
+// Area de administración
+$router->get('/admin/dashboard', [DashboardController::class, 'index']);
 
 // Comprobar las rutas definidas
 $router->comprobarRutas();
