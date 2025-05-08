@@ -43,6 +43,10 @@
     padding: 1rem;
     border: 1px solid color.adjust(v.$gris-claro, $lightness: -20%);
     border-radius: .5rem;
+
+    &--file {
+      border: none
+    }
   }
 
   // Botón de envío del formulario
