@@ -7,6 +7,7 @@ const gulpSass = require("gulp-sass");
 const imagemin = require("gulp-imagemin");
 const sharpResponsive = require("gulp-sharp-responsive"); // New import
 const terser = require("gulp-terser");
+const concat = require("gulp-concat"); // Importar gulp-concat para unir archivos JS
 const webp = require("gulp-webp");
 const autoprefixer = require("autoprefixer");
 const postcss = require("gulp-postcss");
@@ -98,8 +99,9 @@ function js(done) {
 	src(paths.js, { sourcemaps: true })
 		.pipe(gulpPlumber(errorHandler))
 		.pipe(gulpBabel({ presets: ["@babel/preset-env"] }))
-		.pipe(terser())
-		.pipe(dest(paths.dist.js))
+		.pipe(concat("bundle.min.js")) // Une todos los JS en uno solo
+		.pipe(terser()) // Minifica el archivo combinado
+		.pipe(dest(paths.dist.js, { sourcemaps: "." })) // Guarda bundle.min.js y sourcemap
 		.on("end", done);
 }
 
