@@ -75,6 +75,10 @@
     }
   }
 
+  &__listado {
+    @include m.tags;
+  }
+
   // Botón de envío del formulario
   // Utiliza el mixin boton con colores personalizados
   &__submit {
