@@ -14,7 +14,7 @@ class Ponente extends ActiveRecord
   public $redes;
 
   protected static string $tabla = 'ponentes';
-  protected static array $columnaDB = ['id', 'nombre', 'apellido', 'ciudad', 'pais', 'imagen', 'tags', 'redes'];
+  protected static array $columnasDB = ['id', 'nombre', 'apellido', 'ciudad', 'pais', 'imagen', 'tags', 'redes'];
 
   public function __construct($args = [])
   {
