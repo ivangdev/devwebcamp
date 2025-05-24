@@ -13,13 +13,16 @@ class PonentesController
   public static function index(Router $router)
   {
     // Paginacion
-    $pagina_actual = 1;
+    $pagina_actual = $_GET['page'];
+    $pagina_actual = filter_var($pagina_actual, FILTER_VALIDATE_INT);
+
+    if (!$pagina_actual || $pagina_actual < 1) {
+      header('Location: /admin/ponentes?page=1');
+    }
+
     $registrios_por_pagina = 10;
-    $total = 10;
-
+    $total = Ponente::total();
     $paginacion = new Paginacion($pagina_actual, $registrios_por_pagina, $total);
-
-    debuguear($paginacion);
 
     $ponentes = Ponente::all();
 

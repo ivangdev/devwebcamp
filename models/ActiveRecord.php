@@ -131,7 +131,7 @@ class ActiveRecord
     $resultado = self::consultarSQL($query);
     return array_shift($resultado); // Retorna el primer registro encontrado
   }
-  
+
   // Método para obtener registros con una cantidad específica
   public static function get(int $limite)
   {
@@ -146,6 +146,16 @@ class ActiveRecord
     $query = "SELECT * FROM " . static::$tabla . " WHERE {$columna} = '{$valor}'"; // Consulta para buscar por columna
     $resultado = self::consultarSQL($query);
     return array_shift($resultado); // Retorna el primer registro encontrado
+  }
+
+  // Traer un total de registros
+  public static function total()
+  {
+    $query = "SELECT COUNT(*) FROM " . static::$tabla; // Consulta para contar registros
+    $resultado = self::$db->query($query); // Ejecuta la consulta
+    $total = $resultado->fetch_array(); // Obtiene el total de registros
+
+    return array_shift($total);
   }
 
   // Método para crear un nuevo registro en la base de datos
@@ -199,5 +209,5 @@ class ActiveRecord
     $query = "DELETE FROM " . static::$tabla . " WHERE id = " . self::$db->escape_string($this->id) . " LIMIT 1"; // Consulta para eliminar
     $resultado = self::$db->query($query); // Ejecutar la consulta
     return $resultado; // Retorna el resultado de la eliminación 
-  } 
+  }
 }
