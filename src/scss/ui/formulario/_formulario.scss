@@ -75,13 +75,19 @@
     }
   }
 
+  &__texto {
+    margin-top: 3rem;
+  }
+
+  &__imagen {
+    max-width: 20rem;
+  }
+
   &__listado {
     @include m.tags;
   }
 
-  // Botón de envío del formulario
-  // Utiliza el mixin boton con colores personalizados
-  &__submit {
+  olores personalizados &__submit {
     @include m.boton(v.$azul, v.$blanco);
     width: auto;
     align-self: flex-start;
