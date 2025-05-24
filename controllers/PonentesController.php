@@ -2,6 +2,7 @@
 
 namespace Controllers;
 
+use Classes\Paginacion;
 use Model\Ponente;
 use MVC\Router;
 use Intervention\Image\ImageManager as Image;
@@ -11,6 +12,15 @@ class PonentesController
 {
   public static function index(Router $router)
   {
+    // Paginacion
+    $pagina_actual = 1;
+    $registrios_por_pagina = 10;
+    $total = 10;
+
+    $paginacion = new Paginacion($pagina_actual, $registrios_por_pagina, $total);
+
+    debuguear($paginacion);
+
     $ponentes = Ponente::all();
 
     // Proteger ruta en caso de que no sea admin
