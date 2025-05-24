@@ -57,13 +57,13 @@
     <p class="formulario__texto">Imagen Actual:</p>
     <div class="formulario__imagen">
       <!-- // Imagen actual del ponente -->
-       <picture>
-          <source srcset="<?php echo $_ENV['HOST'] . '/img/speakers/' . $ponente->imagen; ?>.webp" type="image/webp">
-          <source srcset="<?php echo $_ENV['HOST'] . '/img/speakers/' . $ponente->imagen; ?>.png" type="image/png">
-         <img src="<?php echo $_ENV['HOST'] . '/img/speakers/' . $ponente->imagen; ?>.png" alt="Imagen Ponente">
-       </picture>
+      <picture>
+        <source srcset="<?php echo $_ENV['HOST'] . '/img/speakers/' . $ponente->imagen; ?>.webp" type="image/webp">
+        <source srcset="<?php echo $_ENV['HOST'] . '/img/speakers/' . $ponente->imagen; ?>.png" type="image/png">
+        <img src="<?php echo $_ENV['HOST'] . '/img/speakers/' . $ponente->imagen; ?>.png" alt="Imagen Ponente">
+      </picture>
     </div>
-  <?php endif; ?> 
+  <?php endif; ?>
 </fieldset>
 
 <fieldset class="formulario__fieldset">
@@ -76,7 +76,7 @@
       id="tags_input"
       placeholder="Ej. Node.js, PHP, CSS, Laravel, UX / UI" />
     <div id="tags" class="formulario__listado"></div>
-    <input type="hidden" name="tags" value="<?php echo $ponentes->tags ?? ''; ?>">
+    <input type="hidden" name="tags" value="<?php echo $ponente->tags ?? ''; ?>">
   </div>
   </legend>
 </fieldset>

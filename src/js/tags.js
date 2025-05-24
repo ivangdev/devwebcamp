@@ -7,6 +7,12 @@
 		const tagsInputHidden = document.querySelector('[name="tags"]'); // seleccionar el input hidden donde se guardarán los tags
 		let tags = []; // arreglo para guardar los tags
 
+		// Recuperar del input oculto los tags almacenados
+		if (tagsInputHidden.value !== "") {
+			tags = tagsInputHidden.value.split(",");
+			mostrarTags(); // mostrar los tags almacenados
+		}
+
 		// Escuchar los cambios en el input
 		tagsInput.addEventListener("keypress", guardarTag);
 
