@@ -13,6 +13,10 @@ class PonentesController
   {
     $ponentes = Ponente::all();
 
+    // Proteger ruta en caso de que no sea admin
+    if (!is_admin()) {
+      header('Location: /login');
+    }
 
     $router->render('admin/ponentes/index', [
       'titulo' => 'Ponentes / Conferencistas',
@@ -22,10 +26,19 @@ class PonentesController
 
   public static function crear(Router $router)
   {
+    // Proteger ruta en caso de que no sea admin
+    if (!is_admin()) {
+      header('Location: /login');
+    }
     $alertas = [];
     $ponente = new Ponente;
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+      // Proteger ruta en caso de que no sea admin
+      if (!is_admin()) {
+        header('Location: /login');
+      }
+
       // Leer imagen
       if (!empty($_FILES['imagen']['tmp_name'])) {
         $carpeta_imagenes = '../public/img/speakers';
@@ -75,6 +88,11 @@ class PonentesController
 
   public static function editar(Router $router)
   {
+    // Proteger ruta en caso de que no sea admin
+    if (!is_admin()) {
+      header('Location: /login');
+    }
+
     $alertas = [];
     // Validar ID
     $id = $_GET['id'];
@@ -97,6 +115,11 @@ class PonentesController
     // debuguear($redes);
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+      // Proteger ruta en caso de que no sea admin
+      if (!is_admin()) {
+        header('Location: /login');
+      }
+
       // Leer imagen
       if (!empty($_FILES['imagen']['tmp_name'])) {
         $carpeta_imagenes = '../public/img/speakers';
@@ -147,6 +170,11 @@ class PonentesController
 
   public static function eliminar()
   {
+    // Proteger ruta en caso de que no sea admin
+    if (!is_admin()) {
+      header('Location: /login');
+    }
+
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       $id = $_POST['id'];
       $ponente = Ponente::find($id);

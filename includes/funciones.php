@@ -39,3 +39,17 @@ function pagina_actual($path): bool
 {
   return str_contains($_SERVER['PATH_INFO'], $path) ? true : false;
 }
+
+// Validar usuario autenticado
+function is_auth(): bool
+{
+  session_start();
+  return isset($_SESSION['nombre']) && !empty($_SESSION);
+}
+
+// Validar si el usuario es admin
+function is_admin(): bool
+{
+  session_start();
+  return isset($_SESSION['admin']) && !empty($_SESSION['admin']);
+}
