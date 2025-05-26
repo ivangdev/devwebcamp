@@ -24,7 +24,12 @@ class PonentesController
     $total = Ponente::total();
     $paginacion = new Paginacion($pagina_actual, $registrios_por_pagina, $total);
 
-    $ponentes = Ponente::all();
+    // Si la pagina actual es mayor al total de paginas, redirigir a la primera pagina
+    if($paginacion->total_paginas() < $pagina_actual) {
+      header('Location: /admin/ponentes?page=1');
+    }
+
+    $ponentes = Ponente::paginar($registrios_por_pagina, $paginacion->offset());
 
     // Proteger ruta en caso de que no sea admin
     if (!is_admin()) {

@@ -140,6 +140,14 @@ class ActiveRecord
     return array_shift($resultado); // Retorna el primer registro encontrado
   }
 
+  public static function  paginar($por_pagina, $offset)
+  {
+    // Método para paginar los registros, recibe el número de registros por página y el offset
+    $query = "SELECT * FROM " . static::$tabla . " ORDER BY id DESC LIMIT {$por_pagina} OFFSET {$offset}";
+    $resultado = self::consultarSQL($query); // Ejecuta la consulta de paginación
+    return $resultado; // Retorna todos los registros encontrados
+  }
+
   // Método para realizar una búsqueda con una condición específica en una columna
   public static function where(string $columna, $valor)
   {
