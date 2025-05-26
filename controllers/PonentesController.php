@@ -24,6 +24,8 @@ class PonentesController
     $total = Ponente::total();
     $paginacion = new Paginacion($pagina_actual, $registrios_por_pagina, $total);
 
+    debuguear($paginacion->pagina_siguiente());
+
     $ponentes = Ponente::all();
 
     // Proteger ruta en caso de que no sea admin
