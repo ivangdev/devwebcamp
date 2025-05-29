@@ -117,9 +117,9 @@ class ActiveRecord
   }
 
   // Método para obtener todos los registros de la tabla
-  public static function all()
+  public static function all($orden = 'DESC')
   {
-    $query = "SELECT * FROM " . static::$tabla . " ORDER BY id DESC"; // Consulta para obtener todos los registros
+    $query = "SELECT * FROM " . static::$tabla . " ORDER BY id {$orden}"; // Consulta para obtener todos los registros
     $resultado = self::consultarSQL($query);
     return $resultado; // Retorna todos los registros obtenidos
   }
