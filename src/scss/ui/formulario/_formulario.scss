@@ -58,7 +58,8 @@
 
   // Campo de entrada del formulario
   // Establece el estilo visual del input
-  &__input {
+  &__input,
+  &__select {
     padding: 1rem;
     border: 1px solid color.adjust(v.$gris-claro, $lightness: -20%);
     border-radius: .5rem;
